@@ -1,19 +1,25 @@
 import { Link } from "react-router-dom";
-import { nanoid } from "nanoid";
-
+import "./Navbar.css";
 export const Navbar = () => {
   let navbar = [
     { title: "Home", to: "/" },
-    { title: "About", to: "/About" },
-    { title: "Contact us", to: "/Contact" },
-    { title: "User", to: "/User" },
-    { title: "UsersList ", to: "userslist" },
+    { title: "Tanner Goods", to: "/goods" },
+    { title: "Mazama Wared", to: "/wares" },
+    { title: "Featured", to: "/Featured" },
+    { title: "Final sale ", to: "sale" },
   ];
   return (
-    <div>
-      {navbar.map((nav) => {
-        return <Link key={nanoid(4)} to={nav.to}>{nav.title}</Link>;
-      })}
+    <div className="navbar">
+      <div className="logo"></div>
+      <div className="links">
+        {navbar.map((el, i) => (
+          <Link className="link" key={i} to={el.to} style={{ margin: "5px" }}>
+            {" "}
+            {el.title}
+          </Link>
+        ))}
+      </div>
+      <div className="account"></div>
     </div>
   );
 };
